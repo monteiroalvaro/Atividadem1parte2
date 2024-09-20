@@ -1,12 +1,15 @@
 /* Alvaro Oliveira RGM: 11221103413 */
 
-create table veterinarios (
-    id_veterinario int primary key auto_increment,
-    nome varchar(100) not null,
-    especializacao varchar(100),
-    telefone varchar(15),
-    email varchar(100),
-    crmv varchar(50) not null
+create table agendamentos (
+    id_agendamento int primary key auto_increment,
+    id_paciente int,
+    id_veterinario int,
+    data date,
+    hora time,
+    tipo varchar(100),
+    foreign key (id_paciente) references paciente(id_paciente),
+    foreign key (id_veterinario) references veterinarios(id_veterinario)
+);
 );
 create table medicamentos (
     id_medicamento int primary key auto_increment,
